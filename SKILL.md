@@ -3,52 +3,34 @@ name: premium-3d-web-design
 description: "Creación de páginas web, componentes y animaciones 3D de alta gama (estilo Awwwards/premium). Úsalo para: portfolios interactivos, landing pages cinematográficas, efectos de glassmorphism avanzado, integraciones de video/3D y animaciones con GSAP o Framer Motion."
 ---
 
-# Premium 3D Web Design Skill
+# Premium 3D Web Design Skill (Smart Adaptive Mode)
 
-Esta skill proporciona las directrices y patrones necesarios para replicar el estilo visual "premium" visto en los ejemplos del usuario, caracterizado por el uso intensivo de video, profundidad 3D, tipografía audaz y animaciones fluidas.
+Esta skill permite a la IA actuar como un selector y adaptador inteligente de diseños de alta gama. No aplica un estilo fijo, sino que busca en su biblioteca el patrón que mejor se adapta a la necesidad del usuario.
 
-## Principios de Diseño
+## 🧠 Lógica de Ejecución (Paso a Paso)
 
-Para lograr el acabado "premium" esperado, debes seguir estas reglas:
+Cuando el usuario pida un diseño, debes seguir este proceso mental:
 
-1.  **Tipografía como Protagonista:** Utiliza fuentes display de alta calidad (como Ogg, Satoshi, Geist o Helvetica Now). No te limites a las fuentes del sistema; usa `@import` o `<link>` para cargar fuentes específicas que definan el carácter de la página.
-2.  **Profundidad y Capas:** Implementa efectos de parallax multicanal. Divide las imágenes en capas (fondo, medio, primer plano) y muévelas a diferentes velocidades durante el scroll.
-3.  **Estética "Liquid Glass":** Para componentes de UI, usa `backdrop-filter: blur()` combinado con bordes semitransparentes y sombras internas suaves para simular cristal líquido.
-4.  **Movimiento Intencional:** Las animaciones no deben ser solo decorativas. Usa transiciones suaves (ease-out/in-out) para guiar la atención del usuario.
+1.  **Análisis de Contexto:** Identifica el sector (ej: lujo, tech, minimalista, industrial) y el objetivo (ej: landing, portfolio, app).
+2.  **Búsqueda por Similitud:** Escanea la biblioteca en `references/full_prompts_library.txt` para encontrar el prompt cuyo estilo visual y estructura mejor encajen con el pedido.
+3.  **Extracción de Estructura:** Identifica los componentes clave del prompt elegido (ej: el rig de scroll, el sistema de variables CSS, las librerías de animación).
+4.  **Adaptación y Clonación:** Crea un nuevo prompt interno que mantenga la "magia" técnica del original pero sustituya:
+    *   Textos y copys por los del nuevo negocio.
+    *   Activos (imágenes/videos) por los proporcionados o sugeridos.
+    *   Colores y tipografías para alinearlos con la marca.
+5.  **Auto-Generación:** Ejecuta el código resultante siguiendo la precisión técnica del prompt de referencia.
 
-## Tecnologías Preferidas
+## 🎨 Estilos Disponibles en la Biblioteca
 
-Dependiendo de la complejidad del proyecto, selecciona el stack adecuado:
+*   **Cinematic Scroll (Parallax Profundo):** Ideal para storytelling y destinos (Referencia: Mostar City).
+*   **Liquid Glass (Glassmorphism Avanzado):** Ideal para apps modernas y bienestar (Referencia: Equilibrium).
+*   **Clean Tech / Dark Premium:** Ideal para seguridad, SaaS y servicios de lujo (Referencia: VaultShield / FluxEngine).
+*   **Interactive Typewriter:** Ideal para portfolios y agencias creativas.
 
-| Stack | Uso Recomendado | Librerías Clave |
-| :--- | :--- | :--- |
-| **Vanilla Premium** | Páginas de scroll cinematográfico puro. | GSAP, ScrollTrigger, CSS Variables. |
-| **React Interactive** | Aplicaciones modernas y componentes dinámicos. | Framer Motion, Lucide Icons, Tailwind CSS. |
-| **3D Inmersivo** | Experiencias con modelos 3D y partículas. | Three.js, React Three Fiber, Spline. |
+## 🛠️ Reglas Técnicas Innegociables
 
-## Flujo de Trabajo
+*   **Variables CSS:** Siempre usa un bloque `:root` para manejar estados de animación.
+*   **Tipografía:** Nunca uses fuentes genéricas; busca la declaración `@font-face` o `<link>` en el prompt de referencia.
+*   **Interacción:** Si el prompt original usa GSAP o Framer Motion, mantén esa misma librería para asegurar la fluidez.
 
-Cuando el usuario pida una página o componente basado en esta skill:
-
-1.  **Análisis de Activos:** Identifica si el usuario proporciona videos, modelos 3D o imágenes. Si no, busca activos de alta calidad que encajen con el estilo "oscuro/futurista" o "limpio/minimalista".
-2.  **Configuración de Variables CSS:** Define un bloque `:root` con variables para colores, desenfoques y estados de animación. Esto permite un control preciso y animaciones fluidas mediante la manipulación de variables desde JavaScript.
-3.  **Implementación de Animaciones:**
-    *   Usa **Framer Motion** para animaciones de entrada (fade-up, stagger children).
-    *   Usa **GSAP** para secuencias complejas basadas en el scroll (scrubbing).
-    *   Usa **Tailwind** para el layout base y estados hover rápidos.
-
-## Ejemplo de Patrón: Liquid Glass
-
-Para crear un contenedor de cristal líquido, aplica este estilo CSS:
-
-```css
-.liquid-glass {
-  background: rgba(255, 255, 255, 0.01);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1);
-  border-radius: 24px;
-}
-```
-
-> **Nota:** Para referencias detalladas sobre los prompts originales y sus estructuras exactas, consulta `/home/ubuntu/skills/premium-3d-web-design/references/original_prompts.md`.
+> **IMPORTANTE:** Consulta siempre `references/full_prompts_library.txt` antes de empezar cualquier desarrollo para asegurar la fidelidad al estilo premium.
